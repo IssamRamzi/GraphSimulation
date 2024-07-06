@@ -32,6 +32,8 @@ add_executable(${PROJECT_NAME}
         src/headers/Graph.h
         src/headers/Node.cpp
         src/headers/Node.h
+        src/headers/Utils.cpp
+        src/headers/Utils.h
 )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)

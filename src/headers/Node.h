@@ -10,20 +10,20 @@
 
 class Node {
 private:
-    int value_int;
-    std::string value_str;
-    int fontSize;
-    int radius;
-    Vector2 position;
-    Node *ancestors;
-    Node *Successors;
+    int             value_int;
+    std::string     value_str;
+    int             fontSize;
+    int             radius;
+    Vector2         position;
+    Node            *ancestors;
+    Node            *Successors;
 
 
 public:
-    Node(int value);
-    Node(int value, Vector2 position);
-    ~Node();
-    void draw();
+    Node        (int value);
+    Node        (int value, Vector2 position);
+    ~           Node();
+    void        draw();
 };
 
 
