@@ -2,8 +2,6 @@
 
 #include "raylib.h"
 #include "headers/Node.h"
-
-
 int main() {
     InitWindow(800,800,"Graph Visualizer");
 
