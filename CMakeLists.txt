@@ -36,6 +36,9 @@ add_executable(${PROJECT_NAME}
         src/headers/Utils.h
         src/pages/home.cpp
         src/pages/page.cpp
+        src/Constants.cpp
+        src/pages/home.h
+        src/pages/page.h
 )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
