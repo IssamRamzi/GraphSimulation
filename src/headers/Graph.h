@@ -14,9 +14,6 @@ public:
     ~Graph(); // Destructor
 
     void draw();
-    void addAncestor(Graph );
-    void addASuccesor();
-
 };
 
 
