@@ -3,12 +3,7 @@
 //
 #include "home.h"
 #include  "page.h"
-class  home : public page{
-public:
-    home() {
 
-    }
-public:
+home::home() {
 
-
-};
+}

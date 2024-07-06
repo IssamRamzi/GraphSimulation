@@ -22,8 +22,11 @@ private:
 public:
     Node        (int value);
     Node        (int value, Vector2 position);
+    Node        (int value, Vector2 position, int radius);
     ~           Node();
     void        draw();
+    static void        create_node();
+    static void        update();
 };
 
 

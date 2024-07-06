@@ -3,9 +3,13 @@
 //
 
 #include"page.h"
-class page {
-public:
-    void draw();
-    void init();
-    void update();
-};
+void page::draw(){
+
+}
+void page::init(){
+
+}
+void page::update(){
+
+}
+

@@ -36,3 +36,25 @@ Node::~Node() {
 
 }
 
+void Node::create_node() {
+    bool waitingForKey;
+    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        Vector2 mouse_position = GetMousePosition();
+        std::cout << mouse_position.x << ", " << mouse_position.y << std::endl;
+        waitingForKey = true;
+    }
+
+    if (waitingForKey) {
+        int key = GetCharPressed();
+        if (key != 0) {  // Key was pressed
+            std::cout << key << std::endl;
+            waitingForKey = false;  // Stop waiting for key
+
+        }
+    }
+}
+
+void Node::update() {
+    Node::create_node();
+}
+

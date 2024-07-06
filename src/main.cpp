@@ -10,8 +10,20 @@ int main() {
     Node node3{8, Vector2{123,320}};
     Node node4{46, Vector2{426,650}};
 
+
     while (!WindowShouldClose()){
         BeginDrawing();
+        Node::update();
+
+        int key = GetCharPressed();
+        if(key){
+            std::cout << key << std::endl;
+            Node node{key, {GetMousePosition().x, GetMousePosition().y}};
+            node.draw();
+            system("pause");
+        }
+
+
 
         ClearBackground(RAYWHITE);
         node1.draw();
