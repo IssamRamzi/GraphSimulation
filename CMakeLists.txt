@@ -28,6 +28,10 @@ endif()
 
 add_executable(${PROJECT_NAME}
         src/main.cpp
+        src/headers/Graph.cpp
+        src/headers/Graph.h
+        src/headers/Node.cpp
+        src/headers/Node.h
 )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
