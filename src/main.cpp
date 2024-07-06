@@ -10,6 +10,7 @@ int main() {
         BeginDrawing();
 
         ClearBackground(BLACK);
+        DrawText("Hello",0,0,30,RED);
 
         EndDrawing();
     }
