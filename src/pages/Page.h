@@ -4,7 +4,7 @@
 
 #ifndef PAGE_H
 #define PAGE_H
-class page {
+class Page {
 public:
     void draw();
     void init();

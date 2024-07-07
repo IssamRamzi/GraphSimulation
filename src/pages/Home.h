@@ -4,10 +4,12 @@
 
 #ifndef HOME_H
 #define HOME_H
-#include  "page.h"
-class home :public page{
+#include  "Page.h"
+class Home :public Page{
 public:
-    home();
+    Home();
+    void  draw();
+    void  update();
 
 };
 #endif //HOME_H

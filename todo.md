@@ -10,6 +10,6 @@
 ### - [ ] Add the Home Page
 ### - [ ] Add the Algo Page
 ### - [ ] Add a help page
-
+### -  [ ] Adding Task bare
 
 # UI
