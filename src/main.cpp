@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "raylib.h"
+#include "../cmake-build-debug/_deps/raylib-src/src/raylib.h"
 #include "headers/Node.h"
 #include "pages/Home.h"
 #include "pages/Page.h"
