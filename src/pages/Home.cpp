@@ -7,6 +7,7 @@
 Home::Home() {
 }
 void Home::draw() {
+    
 
 }
 void Home::update() {
