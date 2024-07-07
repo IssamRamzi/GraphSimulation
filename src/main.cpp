@@ -6,12 +6,12 @@ int main() {
     InitWindow(800,800,"Graph Visualizer");
 
 
-//    Node::test();
+    Node::test();
 
     while (!WindowShouldClose()){
 
         BeginDrawing();
-        Node::updateDraw();
+        Node::testDraw();
         Node::handleCreation();
 
 
