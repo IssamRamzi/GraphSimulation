@@ -6,11 +6,16 @@
 
 Home::Home() {
     this->rect = Rectangle();
+
+    this->components.push_back(std::make_unique<TaskBar>(this->task_bar));
 }
 void Home::draw() {
     this->rect;
-    DrawRectangle(5,5,800,100,BLACK);
 
+    for (const auto & c: this->components) {
+        c->draw();
+
+    }
 
 }
 void Home::update() {

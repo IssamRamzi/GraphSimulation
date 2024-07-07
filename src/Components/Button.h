@@ -8,15 +8,19 @@
 #include "raylib.h"
 
 
+
 class Button : public Component{
 private:
     int width;
     int hieght;
     Vector2 position;
+
+
 public:
     Button();
-    void is_clicked();
-    void draw();
+    bool is_clicked() override;
+    void draw() override;
+    void update() override;
 };
 
 
