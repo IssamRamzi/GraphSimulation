@@ -4,13 +4,19 @@
 
 #ifndef BUTTON_H
 #define BUTTON_H
+#include "Component.h"
+#include "raylib.h"
 
 
-
-class Button {
+class Button : public Component{
+private:
+    int width;
+    int hieght;
+    Vector2 position;
 public:
     Button();
     void is_clicked();
+    void draw();
 };
 
 

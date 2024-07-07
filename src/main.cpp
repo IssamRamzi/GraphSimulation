@@ -7,7 +7,7 @@
 
 int main() {
     InitWindow(800,800,"Graph Visualizer");
-    Page current_page = Home();
+    Home current_page ;
     Node::test();
 
     while (!WindowShouldClose()){
