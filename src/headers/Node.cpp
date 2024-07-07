@@ -61,7 +61,7 @@ void Node::test() {
     nodes.push_back(node4);
 }
 
-void Node::testDraw() {
+void Node::updateDraw() {
     for (auto &node : nodes) {
         node.draw();
     }

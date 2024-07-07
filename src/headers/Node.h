@@ -21,17 +21,17 @@ private:
     static std::vector<Node> nodes;
 
 public:
-    Node        (int value);
-    Node        (int value, Vector2 position);
-    Node        (int value, Vector2 position, int radius);
-    ~           Node();
-    void        draw();
-    static void        create_node();
-    void               toString();
-    static void        handleCreation();
-    static void         test();
+    Node                    (int value);
+    Node                    (int value, Vector2 position);
+    Node                    (int value, Vector2 position, int radius);
+    ~                       Node();
+    void                    draw();
+    static void             create_node();
+    void                    toString();
+    static void             handleCreation();
+    static void             test();
 
-    static void testDraw();
+    static void             updateDraw();
 };
 
 
