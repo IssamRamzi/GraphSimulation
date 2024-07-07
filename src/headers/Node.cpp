@@ -1,5 +1,5 @@
 #include "Node.h"
-
+#include <iostream>
 std::vector<Node> Node::nodes;
 
 Node::Node(int value) {
@@ -39,6 +39,7 @@ void Node::handleCreation() {
             key -=48;
             std::cout << key << std::endl;
             Vector2 mousePosition = GetMousePosition();
+            std::cout <<"Mouseposition x :" << mousePosition.x  << " y :" << mousePosition.y;
             Node node{key, mousePosition};
             Node::nodes.push_back(node);
             node.toString();
