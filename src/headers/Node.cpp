@@ -1,8 +1,6 @@
-//
-// Created by golde on 06/07/2024.
-//
-
 #include "Node.h"
+
+std::vector<Node> Node::nodes;
 
 Node::Node(int value) {
     this->value_int = value;
@@ -17,14 +15,11 @@ Node::Node(int value, Vector2 position) {
     fontSize = 25;
 }
 
-
 void Node::draw() {
-    DrawCircleLines(position.x,position.y,30, BLACK);
-    value_str= std::to_string(this->value_int);
-//    std::cout << "String Value : " << value_str <<", Int value : " << value_int <<  std::endl;
+    DrawCircleLines(position.x, position.y, radius, BLACK);
+    value_str = std::to_string(this->value_int);
 
     int textWidth = MeasureText(value_str.c_str(), fontSize);
-    // Pas besoin du textHeight vu que deja 3ndna fontSize f attributs
 
     int textX = position.x - textWidth / 2;
     int textY = position.y - fontSize / 2;
@@ -36,25 +31,37 @@ Node::~Node() {
 
 }
 
-void Node::create_node() {
-    bool waitingForKey;
-    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        Vector2 mouse_position = GetMousePosition();
-        std::cout << mouse_position.x << ", " << mouse_position.y << std::endl;
-        waitingForKey = true;
-    }
 
-    if (waitingForKey) {
+void Node::handleCreation() {
+    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
         int key = GetCharPressed();
-        if (key != 0) {  // Key was pressed
+        if (key) {
             std::cout << key << std::endl;
-            waitingForKey = false;  // Stop waiting for key
-
+            Vector2 mousePosition = GetMousePosition();
+            Node node{key, mousePosition};
+            Node::nodes.push_back(node);
+            node.toString();
         }
     }
 }
 
-void Node::update() {
-    Node::create_node();
+void Node::toString() {
+    std::cout << "Value : " << value_int << ", Position : (" << position.x << ", " << position.y << ")";
 }
 
+void Node::test() {
+    Node node1{15, Vector2{320, 50}};
+    Node node2{2, Vector2{60, 50}};
+    Node node3{8, Vector2{123, 320}};
+    Node node4{46, Vector2{426, 650}};
+    nodes.push_back(node1);
+    nodes.push_back(node2);
+    nodes.push_back(node3);
+    nodes.push_back(node4);
+}
+
+void Node::testDraw() {
+    for (auto &node : nodes) {
+        node.draw();
+    }
+}

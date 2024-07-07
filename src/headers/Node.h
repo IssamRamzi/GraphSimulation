@@ -7,6 +7,7 @@
 
 #include "raylib.h"
 #include <iostream>
+#include <vector>
 
 class Node {
 private:
@@ -17,7 +18,7 @@ private:
     Vector2         position;
     Node            *ancestors;
     Node            *Successors;
-
+    static std::vector<Node> nodes;
 
 public:
     Node        (int value);
@@ -26,7 +27,11 @@ public:
     ~           Node();
     void        draw();
     static void        create_node();
-    static void        update();
+    void               toString();
+    static void        handleCreation();
+    static void         test();
+
+    static void testDraw();
 };
 
 
