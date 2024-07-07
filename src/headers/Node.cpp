@@ -35,7 +35,8 @@ Node::~Node() {
 void Node::handleCreation() {
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
         int key = GetCharPressed();
-        if (key) {
+        if (key >= 48 && key <= 57) {
+            key -=48;
             std::cout << key << std::endl;
             Vector2 mousePosition = GetMousePosition();
             Node node{key, mousePosition};
