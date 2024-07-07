@@ -37,9 +37,7 @@ void Node::handleCreation() {
         int key = GetCharPressed();
         if (key >= 48 && key <= 57) {
             key -=48;
-            std::cout << key << std::endl;
             Vector2 mousePosition = GetMousePosition();
-            std::cout <<"Mouseposition x :" << mousePosition.x  << " y :" << mousePosition.y;
             Node node{key, mousePosition};
             Node::nodes.push_back(node);
             node.toString();
@@ -48,7 +46,7 @@ void Node::handleCreation() {
 }
 
 void Node::toString() {
-    std::cout << "Value : " << value_int << ", Position : (" << position.x << ", " << position.y << ")";
+    std::cout << "Value : " << value_int << ", Position : (" << position.x << ", " << position.y << ")" << std::endl;
 }
 
 void Node::test() {
