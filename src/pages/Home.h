@@ -5,9 +5,12 @@
 #ifndef HOME_H
 #define HOME_H
 #include  "Page.h"
+#include "raylib.h"
+
 class Home :public Page{
 public:
     Home();
+    Rectangle rect;
     void  draw();
     void  update();
 

@@ -43,6 +43,9 @@ add_executable(${PROJECT_NAME}
         src/pages/start.h
         src/Components/Button.cpp
         src/Components/Button.h
+        src/Constants.h
+        src/Components/Component.cpp
+        src/Components/Component.h
 )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)

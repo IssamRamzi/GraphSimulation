@@ -6,6 +6,7 @@
 #define PAGE_H
 class Page {
 public:
+
     void draw();
     void init();
     void update();

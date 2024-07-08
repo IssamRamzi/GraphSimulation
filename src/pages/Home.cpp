@@ -5,8 +5,12 @@
 #include  "Page.h"
 
 Home::Home() {
+    this->rect = Rectangle();
 }
 void Home::draw() {
+    this->rect;
+    DrawRectangle(5,5,800,100,BLACK);
+
 
 }
 void Home::update() {

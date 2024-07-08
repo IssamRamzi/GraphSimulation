@@ -2,24 +2,21 @@
 
 #include "../cmake-build-debug/_deps/raylib-src/src/raylib.h"
 #include "headers/Node.h"
+#include "pages/Home.h"
+#include "pages/Page.h"
+
 int main() {
     InitWindow(800,800,"Graph Visualizer");
-
-
-//    Node::test();
+    Home current_page ;
+    Node::test();
 
     while (!WindowShouldClose()){
 
         BeginDrawing();
-
+        current_page.draw();
+        Node::testDraw();
         Node::handleCreation();
-        Node::updateDraw();
-
-
-
         ClearBackground(RAYWHITE);
-
-
         EndDrawing();
     }
     return 0;
