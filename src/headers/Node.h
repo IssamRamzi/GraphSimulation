@@ -20,18 +20,24 @@ private:
     Node            *Successors;
     static std::vector<Node> nodes;
 
+    Color color;
+
 public:
     Node                    (int value);
     Node                    (int value, Vector2 position);
     Node                    (int value, Vector2 position, int radius);
+    Node                    (int value, Vector2 position, Color color);
+    Node                    (int value, Vector2 position, int radius, Color color);
+
+
     ~                       Node();
     void                    draw();
-    static void             create_node();
     void                    toString();
     static void             handleCreation();
     static void             test();
 
     static void             updateDraw();
+    bool                    isClicked();
 };
 
 

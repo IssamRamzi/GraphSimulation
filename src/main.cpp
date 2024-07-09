@@ -8,14 +8,13 @@
 int main() {
     InitWindow(800,800,"Graph Visualizer");
     Home current_page ;
-    Node::test();
 
     while (!WindowShouldClose()){
 
         BeginDrawing();
-        current_page.draw();
-        Node::testDraw();
+//        current_page.draw();
         Node::handleCreation();
+        Node::updateDraw();
         ClearBackground(RAYWHITE);
         EndDrawing();
     }

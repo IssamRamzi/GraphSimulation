@@ -6,6 +6,7 @@ Node::Node(int value) {
     this->value_int = value;
     radius = 30;
     fontSize = 20;
+    this->color = BLACK;
 }
 
 Node::Node(int value, Vector2 position) {
@@ -13,7 +14,36 @@ Node::Node(int value, Vector2 position) {
     this->position = position;
     radius = 30;
     fontSize = 25;
+    this->color = BLACK;
 }
+
+Node::Node(int value, Vector2 position, int radius) {
+    this->value_int = value;
+    this->value_str = std::to_string(value);
+    this->position = position;
+    this->radius = radius;
+    this->fontSize = 25;
+    this->color = BLACK;
+}
+
+Node::Node(int value, Vector2 position, Color color) {
+    this->value_int = value;
+    this->value_str = std::to_string(value);
+    this->position = position;
+    this->color = color;
+    this->fontSize = 25;
+}
+
+Node::Node(int value, Vector2 position, int radius, Color color) {
+    this->value_int = value;
+    this->value_str = std::to_string(value);
+    this->position = position;
+    this->color = color;
+    this->radius = radius;
+    this->fontSize = 25;
+}
+
+
 
 void Node::draw() {
     DrawCircleLines(position.x, position.y, radius, BLACK);
@@ -26,11 +56,6 @@ void Node::draw() {
 
     DrawText(value_str.c_str(), textX, textY, fontSize, BLACK);
 }
-
-Node::~Node() {
-
-}
-
 
 void Node::handleCreation() {
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
@@ -63,5 +88,27 @@ void Node::test() {
 void Node::updateDraw() {
     for (auto &node : nodes) {
         node.draw();
+        node.isClicked();
     }
 }
+
+bool Node::isClicked() {
+    if(IsMouseButtonPressed(MOUSE_RIGHT_BUTTON)){
+        Vector2 mouse_pos = GetMousePosition();
+        if(mouse_pos.x <= this->position.x + radius && mouse_pos.x >= this->position.x - radius &&
+           mouse_pos.y <= this->position.y + radius && mouse_pos.y >= this->position.y - radius
+        ){
+            std::cout << "Node Clicked" << std::endl;
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+Node::~Node() {
+//    std::cout << "The node with the value " << value_int << " has been deleted";
+}
+
