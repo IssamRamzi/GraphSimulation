@@ -13,8 +13,8 @@ int main() {
 
         BeginDrawing();
 //        current_page.draw();
-        Node::handleCreation();
-        Node::updateDraw();
+        Node::handle_creation();
+        Node::update();
         ClearBackground(RAYWHITE);
         EndDrawing();
     }

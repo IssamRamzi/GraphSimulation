@@ -1,114 +1,147 @@
 #include "Node.h"
 #include <iostream>
+
+// Static vector to store all created nodes
 std::vector<Node> Node::nodes;
+std::vector<std::pair<Node*, Node*>> Node::links;
+std::vector<Node*> Node::link_vector;
 
-Node::Node(int value) {
-    this->value_int = value;
-    radius = 30;
-    fontSize = 20;
-    this->color = BLACK;
+// Constants for default values
+static const int DEFAULT_RADIUS = 30;
+static const int DEFAULT_FONT_SIZE = 25;
+static const Color DEFAULT_COLOR = BLACK;
+static const int MINIMUM_DISTANCE = 50;
+
+// Constructor: Initializes a Node with a given value
+Node::Node(int value)
+        : value_int(value), radius(DEFAULT_RADIUS), fontSize(DEFAULT_FONT_SIZE), color(DEFAULT_COLOR) {
+    value_str = std::to_string(value);
 }
 
-Node::Node(int value, Vector2 position) {
-    this->value_int = value;
-    this->position = position;
-    radius = 30;
-    fontSize = 25;
-    this->color = BLACK;
+// Constructor: Initializes a Node with a given value and position
+Node::Node(int value, Vector2 position)
+        : value_int(value), position(position), radius(DEFAULT_RADIUS), fontSize(DEFAULT_FONT_SIZE), color(DEFAULT_COLOR) {
+    value_str = std::to_string(value);
 }
 
-Node::Node(int value, Vector2 position, int radius) {
-    this->value_int = value;
-    this->value_str = std::to_string(value);
-    this->position = position;
-    this->radius = radius;
-    this->fontSize = 25;
-    this->color = BLACK;
+// Constructor: Initializes a Node with a given value, position, and radius
+Node::Node(int value, Vector2 position, int radius)
+        : value_int(value), position(position), radius(radius), fontSize(DEFAULT_FONT_SIZE), color(DEFAULT_COLOR) {
+    value_str = std::to_string(value);
 }
 
-Node::Node(int value, Vector2 position, Color color) {
-    this->value_int = value;
-    this->value_str = std::to_string(value);
-    this->position = position;
-    this->color = color;
-    this->fontSize = 25;
+// Constructor: Initializes a Node with a given value, position, and color
+Node::Node(int value, Vector2 position, Color color)
+        : value_int(value), position(position), radius(DEFAULT_RADIUS), fontSize(DEFAULT_FONT_SIZE), color(color) {
+    value_str = std::to_string(value);
 }
 
-Node::Node(int value, Vector2 position, int radius, Color color) {
-    this->value_int = value;
-    this->value_str = std::to_string(value);
-    this->position = position;
-    this->color = color;
-    this->radius = radius;
-    this->fontSize = 25;
+// Constructor: Initializes a Node with a given value, position, radius, and color
+Node::Node(int value, Vector2 position, int radius, Color color)
+        : value_int(value), position(position), radius(radius), fontSize(DEFAULT_FONT_SIZE), color(color) {
+    value_str = std::to_string(value);
 }
 
-
-
+// Draws the Node on the screen
 void Node::draw() {
-    DrawCircleLines(position.x, position.y, radius, BLACK);
-    value_str = std::to_string(this->value_int);
-
-    int textWidth = MeasureText(value_str.c_str(), fontSize);
-
+    DrawCircleLines(position.x, position.y, radius, color);
+    std::string valueStr = std::to_string(value_int);
+    int textWidth = MeasureText(valueStr.c_str(), fontSize);
     int textX = position.x - textWidth / 2;
     int textY = position.y - fontSize / 2;
 
-    DrawText(value_str.c_str(), textX, textY, fontSize, BLACK);
+    DrawText(valueStr.c_str(), textX, textY, fontSize, BLACK);
 }
 
-void Node::handleCreation() {
+// Handles the creation of new Nodes based on mouse input
+void Node::handle_creation() {
+    for (const Node& node : nodes) {
+        if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+            Vector2 mouse_pos = GetMousePosition();
+            if (mouse_pos.x <= node.position.x + node.radius + MINIMUM_DISTANCE && mouse_pos.x >= node.position.x - node.radius - MINIMUM_DISTANCE &&
+                mouse_pos.y <= node.position.y + node.radius + MINIMUM_DISTANCE && mouse_pos.y >= node.position.y - node.radius - MINIMUM_DISTANCE) {
+                std::cout << "Can't create here" << std::endl;
+                return;
+            }
+        }
+    }
+
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
         int key = GetCharPressed();
-        if (key >= 48 && key <= 57) {
-            key -=48;
+        if (key >= '0' && key <= '9') {
+            key -= '0';
             Vector2 mousePosition = GetMousePosition();
             Node node{key, mousePosition};
-            Node::nodes.push_back(node);
+            nodes.push_back(node);
             node.toString();
         }
     }
 }
 
+// Prints the Node's value and position to the console
 void Node::toString() {
     std::cout << "Value : " << value_int << ", Position : (" << position.x << ", " << position.y << ")" << std::endl;
 }
 
+// Test function to create and add some sample Nodes to the nodes vector
 void Node::test() {
-    Node node1{15, Vector2{320, 50}};
-    Node node2{2, Vector2{60, 50}};
-    Node node3{8, Vector2{123, 320}};
-    Node node4{46, Vector2{426, 650}};
-    nodes.push_back(node1);
-    nodes.push_back(node2);
-    nodes.push_back(node3);
-    nodes.push_back(node4);
+    nodes.emplace_back(15, Vector2{320, 50});
+    nodes.emplace_back(2, Vector2{60, 50});
+    nodes.emplace_back(8, Vector2{123, 320});
+    nodes.emplace_back(46, Vector2{426, 650});
 }
 
-void Node::updateDraw() {
-    for (auto &node : nodes) {
-        node.draw();
-        node.isClicked();
+// Updates and draws all Nodes in the nodes vector
+void Node::update() {
+
+    if(IsKeyPressed(KEY_R)){
+        link_vector.clear();
+        std::cout << "Cleared the LINK_VECTOR !" << std::endl;
     }
+
+    for (Node& node : nodes) {
+        node.draw();
+        node.is_clicked();
+    }
+    draw_links();
 }
 
-bool Node::isClicked() {
-    if(IsMouseButtonPressed(MOUSE_RIGHT_BUTTON)){
+// Checks if the Node is clicked by the mouse
+bool Node::is_clicked() {
+    if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON)) {
         Vector2 mouse_pos = GetMousePosition();
-        if(mouse_pos.x <= this->position.x + radius && mouse_pos.x >= this->position.x - radius &&
-           mouse_pos.y <= this->position.y + radius && mouse_pos.y >= this->position.y - radius
-        ){
-            std::cout << "Node Clicked" << std::endl;
+        if (mouse_pos.x <= position.x + radius && mouse_pos.x >= position.x - radius &&
+            mouse_pos.y <= position.y + radius && mouse_pos.y >= position.y - radius) {
+            std::cout << "Added to the link vector" << std::endl;
+            if (link_vector.size() == 2) link_vector.clear();
+            link_vector.emplace_back(this);
+            if (link_vector.size() == 2) {
+                link_nodes();
+            }
             return true;
         }
     }
     return false;
 }
 
-
-
-
-Node::~Node() {
-//    std::cout << "The node with the value " << value_int << " has been deleted";
+// Links the two nodes in the link_vector
+void Node::link_nodes() {
+    if (link_vector.size() == 2) {
+        links.emplace_back(link_vector[0], link_vector[1]);
+        std::cout << "Linked nodes" << std::endl;
+    }
 }
 
+// Draws lines between linked nodes
+void Node::draw_links() {
+    for (const auto& link : links) {
+        Vector2 start = link.first->position;
+        Vector2 end = link.second->position;
+        DrawLineEx(start, end,2, RED);
+    }
+}
+
+// Destructor for the Node class
+Node::~Node() {
+    // std::cout << "The node with the value " << value_int << " has been deleted";
+}
