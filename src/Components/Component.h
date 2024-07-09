@@ -8,14 +8,17 @@
 
 
 class Component {
-private:
-    Vector2 posirion;
+protected:
+    Vector2 position;
+    int width;
+    int hieght;
+    Color color;
+
 public:
-    void draw();
-    void uplate();
-    bool is_clicked();
-
-
+    virtual  void draw() =0;
+    virtual  void update()=0;
+    virtual  bool is_clicked() =0;
+    virtual ~Component(){};
 };
 
 
