@@ -8,8 +8,10 @@
 int main() {
     InitWindow(800,800,"Graph Visualizer");
     Home current_page ;
+    std::cout ">>" << std::endl;
 
     while (!WindowShouldClose()){
+
 
         BeginDrawing();
 //        current_page.draw();
