@@ -16,7 +16,6 @@ void Home::draw() {
         c->draw();
 
     }
-
 }
 void Home::update() {
 

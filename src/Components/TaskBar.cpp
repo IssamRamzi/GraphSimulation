@@ -16,9 +16,9 @@ TaskBar::TaskBar(int x,int y,int width,int hieght,Color color){
 }
 void TaskBar::draw() {
 
-   DrawLine(this->position.x,this->position.y,this->position.x+this->width,this->position.y,this->color);
-    DrawLine(this->position.x,this->position.y+this->hieght,this->position.x+this->width,this->position.y+this->hieght,this->color);
-
+   //DrawLine(this->position.x,this->position.y,this->position.x+this->width,this->position.y,this->color);
+    //DrawLine(this->position.x,this->position.y+this->hieght,this->position.x+this->width,this->position.y+this->hieght,this->color);
+    DrawRectangleLines(100, 100, 200, 150, BLACK);
 }
 void TaskBar::update() {
 }
