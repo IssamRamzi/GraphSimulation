@@ -11,8 +11,10 @@ int main() {
     Utils utils;
     InitWindow(utils.WINDOW_WIDTH,utils.WINDOW_HEIGHT,"Graph Visualizer");
     Home current_page ;
+    std::cout ">>" << std::endl;
 
     while (!WindowShouldClose()){
+
 
         BeginDrawing();
         current_page.draw();
