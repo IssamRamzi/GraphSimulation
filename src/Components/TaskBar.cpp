@@ -18,7 +18,7 @@ void TaskBar::draw() {
 
    //DrawLine(this->position.x,this->position.y,this->position.x+this->width,this->position.y,this->color);
     //DrawLine(this->position.x,this->position.y+this->hieght,this->position.x+this->width,this->position.y+this->hieght,this->color);
-    DrawRectangleLines(100, 100, 200, 150, BLACK);
+    DrawRectangleLines(this->position.x, this->position.y, this->width, this->hieght, BLACK);
 }
 void TaskBar::update() {
 }

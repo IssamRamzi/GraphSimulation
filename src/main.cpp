@@ -10,16 +10,16 @@
 int main() {
     Utils utils;
     InitWindow(utils.WINDOW_WIDTH,utils.WINDOW_HEIGHT,"Graph Visualizer");
-    Home current_page ;
-    std::cout ">>" << std::endl;
-
+    Home current_page = Home() ;
+//    std::cout ">>" << std::endl;
+    Node::handle_creation();
+    Node::update();
     while (!WindowShouldClose()){
 
 
         BeginDrawing();
         current_page.draw();
-        Node::handleCreation();
-        Node::updateDraw();
+
         ClearBackground(RAYWHITE);
         EndDrawing();
     }
