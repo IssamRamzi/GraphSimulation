@@ -6,19 +6,18 @@
 
 
 TaskBar::TaskBar(int x,int y,int width,int hieght,Color color){
-    this->position.x = x;
-    this->position.y = y;
-    this->hieght = hieght;
-    this->width = width;
+    this->rect.x = x;
+    this->rect.y = y;
+    this->rect.height= hieght;
+    this->rect.width = width;
     this->color = color;
 
 
 }
 void TaskBar::draw() {
+    DrawRectangleLinesEx(this->rect, 5,this->color);
 
-   //DrawLine(this->position.x,this->position.y,this->position.x+this->width,this->position.y,this->color);
-    //DrawLine(this->position.x,this->position.y+this->hieght,this->position.x+this->width,this->position.y+this->hieght,this->color);
-    DrawRectangleLines(this->position.x, this->position.y, this->width, this->hieght, BLACK);
+
 }
 void TaskBar::update() {
 }

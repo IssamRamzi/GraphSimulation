@@ -4,12 +4,13 @@
 
 #ifndef PAGE_H
 #define PAGE_H
+#include <iostream>
+using std::string;
 class Page {
 public:
-
-    void draw();
-    void init();
-    void update();
+    static  string next;
+    virtual void draw()=0;
+    virtual  void update()=0;
 };
 
 #endif //PAGE_H

@@ -22,5 +22,8 @@ void Home::draw() {
 }
 void Home::update() {
     Node :: handle_creation();
+    for (const auto & c: this->components) {
+        c->update();
 
+    }
 }
