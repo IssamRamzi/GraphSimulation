@@ -7,6 +7,7 @@
 string Page::next = "start";
 using std::string;
 int main() {
+    std::cout << "Working Directory : "<<GetWorkingDirectory() << std::endl;
     App app;
     app.launch();
 

@@ -9,9 +9,12 @@
 
 
 class IconButton : public  Button{
-    Texture2D icon{};
+    Texture2D icon;
+    bool enabled;
 public:
-    IconButton(int pos_x,int pos_y,int hieght,int width,Texture2D icon);
+    void switch_enabled();
+    bool is_enabled();
+    IconButton(int pos_x,int pos_y,int hieght,int width,const char* iconPath);
     void draw() override;
     void update() override;
 

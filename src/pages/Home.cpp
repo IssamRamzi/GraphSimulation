@@ -30,8 +30,15 @@ void Home::update() {
     }
 }
 void Home::handel_events() {
-      if(this->btn.is_clicked()) {
-          Page::next = "start";
-      }
+    std::cout << "state is : " <<this->deleteButton.is_enabled()<< std::endl;
+
+    if(this->deleteButton.is_enabled()) {
+         SetMouseCursor(3);
+     }else {
+         SetMouseCursor(0);
+     }
+    if(this->btn.is_clicked()) {
+        Page::next = "start";
+    }
 }
 
