@@ -9,7 +9,9 @@
 
 static const int DEFAULT_FONT_SIZE = 25;
 static  const int DEFAULT_PADDING = 5;
+Button::Button() {
 
+}
 Button::Button(int x,int y,int width,int hieght,Color color,Color hooverColor,std::string text){
     this->rect.x = x;
     this->rect.y = y;
@@ -20,6 +22,7 @@ Button::Button(int x,int y,int width,int hieght,Color color,Color hooverColor,st
     this->text = text;
     this->rect.width =  MeasureText(this->text.c_str(), DEFAULT_FONT_SIZE)+DEFAULT_PADDING+5;
 }
+
 void Button::draw() {
     DrawRectangleRec(this->rect, this->drawColor);
     int textWidth = MeasureText(this->text.c_str(), DEFAULT_FONT_SIZE);

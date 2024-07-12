@@ -26,8 +26,7 @@ void App::launch() {
     while (!WindowShouldClose()){
         current_page = pages[Page::next];
         BeginDrawing();
-        Node::handle_creation();
-        Node::update();
+
         current_page->draw();
         current_page->update();
         current_page->handel_events();

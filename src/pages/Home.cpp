@@ -11,14 +11,16 @@ Home::Home() {
 
     this->components.push_back(std::make_unique<TaskBar>(this->task_bar));
     this->components.push_back(std::make_unique<Button>(btn));
+    this->components.push_back(std::make_unique<IconButton>(this->deleteButton));
 }
 void Home::draw() {
     this->rect;
 
     for (const auto & c: this->components) {
         c->draw();
-
     }
+    Node::handle_creation();
+    Node::update();
 }
 void Home::update() {
     Node :: handle_creation();

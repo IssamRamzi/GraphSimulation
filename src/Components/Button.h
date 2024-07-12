@@ -25,8 +25,8 @@ private:
 
 public:
     Button(int x,int y,int width,int hieght,Color color,Color hooverColor ,std::string text);
+    Button();
     bool is_clicked() override;
-
     void draw() override;
     void update() override;
 };
