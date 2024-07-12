@@ -47,6 +47,8 @@ add_executable(${PROJECT_NAME}
         src/Components/Component.h
         src/Components/TaskBar.cpp
         src/Components/TaskBar.h
+        src/App.cpp
+        src/App.h
 )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)

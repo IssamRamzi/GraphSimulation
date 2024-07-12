@@ -8,7 +8,7 @@
 
 Home::Home() {
     this->rect = Rectangle();
-    Button btn= Button(100,400,70,42,RED,DARKBLUE,"HOME");
+
     this->components.push_back(std::make_unique<TaskBar>(this->task_bar));
     this->components.push_back(std::make_unique<Button>(btn));
 }
@@ -27,3 +27,9 @@ void Home::update() {
 
     }
 }
+void Home::handel_events() {
+      if(this->btn.is_clicked()) {
+          Page::next = "start";
+      }
+}
+
