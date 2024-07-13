@@ -98,6 +98,10 @@ void Node::update() {
         link_vector.clear();
         std::cout << "Cleared the LINK_VECTOR !" << std::endl;
     }
+    else if (IsKeyPressed(KEY_A)){
+        std::cout << "Links Erased !" << std::endl;
+        links.clear();
+    }
 
     for (Node& node : nodes) {
         node.draw();

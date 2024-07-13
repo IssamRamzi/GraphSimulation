@@ -33,7 +33,7 @@ void Button::draw() {
 }
 bool Button::is_clicked() {
     if( CheckCollisionPointRec(GetMousePosition(),this->rect)&& IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        std::cout << "button is clicked  \n " ;
+        std::cout << "button " << this->text.c_str() << " is clicked  \n" ;
         return true;
     }else {
         //std::cout << "button is not clicked \n " ;
