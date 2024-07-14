@@ -36,7 +36,7 @@ void Home::update() {
     }
 }
 void Home::handel_events() {
-    std::cout << "state is : " <<this->deleteButton.is_enabled()<< std::endl;
+   // std::cout << "state is : " <<this->deleteButton.is_enabled()<< std::endl;
 
     if(this->deleteButton.is_enabled()) {
          SetMouseCursor(3);
