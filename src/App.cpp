@@ -19,6 +19,7 @@ void App::launch() {
     std::map<string,Page*> pages ;
     pages.insert(std::make_pair("home",&home));
     pages.insert(std::make_pair("start",&start));
+
     Page* current_page = &start ;
     Page::next = "start";
 

@@ -12,6 +12,12 @@ Home::Home() {
     this->components.push_back(std::make_unique<TaskBar>(this->task_bar));
     this->components.push_back(std::make_unique<Button>(btn));
     this->components.push_back(std::make_unique<IconButton>(this->deleteButton));
+    this->components.push_back(std::make_unique<IconButton>(this->addEdgeButton));
+    this->components.push_back(std::make_unique<IconButton>(this->addNodeButton));
+    this->components.push_back(std::make_unique<IconButton>(this->pauseSimulationButton));
+    this->components.push_back(std::make_unique<IconButton>(this->startSimulationrtButton));
+
+
 }
 void Home::draw() {
     this->rect;
