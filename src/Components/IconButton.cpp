@@ -34,7 +34,7 @@ void IconButton::update() {
     }
 }
 bool IconButton::is_enabled() {
-    return  this->enabled;
+    return this->enabled;
 }
 void IconButton::switch_enabled() {
     this->enabled = !this->enabled;

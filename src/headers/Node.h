@@ -42,10 +42,9 @@ public:
     static void             test();
     static void             update();
     bool                    is_clicked();
-
     static void             link_nodes();
-
-    static void draw_links();
+    static void             draw_links();
+    static void             delete_all();
 };
 
 

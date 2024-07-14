@@ -149,3 +149,9 @@ void Node::draw_links() {
 Node::~Node() {
     // std::cout << "The node with the value " << value_int << " has been deleted";
 }
+
+void Node::delete_all() {
+    nodes.clear();
+    links.clear();
+    link_vector.clear();
+}

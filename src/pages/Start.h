@@ -11,6 +11,8 @@
 class Start : public  Page{
 private:
     Button start = Button(utils.WINDOW_WIDTH/2,utils.WINDOW_HEIGHT*0.8,20,40,RED,DARKBLUE,"START");
+    Button help = Button(utils.WINDOW_WIDTH / 2 - 320 ,utils.WINDOW_HEIGHT * 0.8,20,40,GRAY,WHITE,"Help");
+    Button other = Button(utils.WINDOW_WIDTH / 2 + 320 ,utils.WINDOW_HEIGHT * 0.8,20,40,GRAY,WHITE,"Other");
 public:
     Start();
     void draw() override;

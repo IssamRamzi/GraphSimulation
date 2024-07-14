@@ -7,8 +7,9 @@
 #include "../headers/Utils.h"
 
 Start::Start() {
-
     this->components.push_back(std::make_unique<Button>(start));
+    this->components.push_back(std::make_unique<Button>(help));
+    this->components.push_back(std::make_unique<Button>(other));
 }
 void Start::draw() {
     for(auto& c : this->components) {
@@ -24,6 +25,10 @@ void Start::update() {
 void Start::handel_events() {
     if(this->start.is_clicked()) {
         Page::next = "home";
+    }
+    if(this->help.is_clicked()){
+        std::cout << "help page" << std::endl;
+        Page::next = "help";
     }
 }
 

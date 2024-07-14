@@ -8,17 +8,24 @@
 #include "pages/Start.h"
 #include <map>
 #include "App.h"
+
+
 App::App() {
 
 }
+
+
 void App::launch() {
     Utils utils;
     InitWindow(utils.WINDOW_WIDTH,utils.WINDOW_HEIGHT,"Graph Visualizer");
+    SetTargetFPS(utils.FPS);
     Home home;
     Start start;
+//    Help help;
     std::map<string,Page*> pages ;
     pages.insert(std::make_pair("home",&home));
     pages.insert(std::make_pair("start",&start));
+//    pages.insert(std::make_pair("help", &help));
     Page* current_page = &start ;
     Page::next = "start";
 
