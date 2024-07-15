@@ -45,6 +45,7 @@ public:
     static void             link_nodes();
     static void             draw_links();
     static void             delete_all();
+    bool                    is_clicked2();
 };
 
 

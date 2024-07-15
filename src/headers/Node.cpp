@@ -155,3 +155,12 @@ void Node::delete_all() {
     links.clear();
     link_vector.clear();
 }
+bool Node::is_clicked2() {
+    Vector2 mouse_pos = GetMousePosition();
+    if (mouse_pos.x <= position.x + radius && mouse_pos.x >= position.x - radius &&
+        mouse_pos.y <= position.y + radius && mouse_pos.y >= position.y - radius) {
+        std::cout << this->value_int << "is clicked";
+        return  true;
+    }
+    return false;
+}

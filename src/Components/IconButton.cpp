@@ -27,13 +27,11 @@ void IconButton::draw() {
      Vector2 position ;
     position.x = this->rect.x;
     position.y = this->rect.y;
-   // DrawTextureRec(icon,this->rect,position,LIGHTGRAY);
 }
 void IconButton::update() {
+
     if(CheckCollisionPointRec(GetMousePosition(),this->rect)) {
-        //Color tmp = this->color;
         this->drawColor = hooverColor;
-        //this->hooverColor = tmp;
     }else {
         this->drawColor =this->color;
     }

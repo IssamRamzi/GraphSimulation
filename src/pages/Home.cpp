@@ -2,6 +2,9 @@
 // Created by محمد عبد العزيز on 7/6/2024.
 //
 #include "Home.h"
+
+#include <algorithm>
+
 #include  "Page.h"
 #include "../Components/Button.h"
 #include "../headers/Node.h"
@@ -41,13 +44,22 @@ void Home::handel_events() {
     if(this->deleteAllButton.is_clicked()) {
         Node::delete_all();
     }
-    if(this->deleteButton.is_enabled()) {
-         SetMouseCursor(3);
-     }else {
-        // SetMouseCursor(0);
-     }
     if(this->btn.is_clicked()) {
         Page::next = "start";
+    }
+    //if(CheckCollisionPointRec(GetMousePosition(),this->deleteButton.getRect()) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+    if(this->deleteButton.is_clicked()){
+       this->deleteButton.switch_enabled();
+    }
+    if(this->deleteButton.is_enabled()) {
+        SetMouseCursor(3);
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            Node::nodes.erase(std::remove_if(Node::nodes.begin(), Node::nodes.end(), []( Node n) {
+            return n.is_clicked2();
+      }),  Node::nodes.end());
+        }
+    }else {
+        SetMouseCursor(0);
     }
 }
 
