@@ -17,6 +17,9 @@ void IconButtonGroup::draw() {
     }
 }
 void IconButtonGroup::update() {
+    if(CheckCollisionPointRec(GetMousePosition(),this->rect)) {
+
+    }
 
 }
 bool IconButtonGroup::is_clicked() {

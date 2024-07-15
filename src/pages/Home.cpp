@@ -11,6 +11,7 @@ Home::Home() {
 
     this->components.push_back(std::make_unique<TaskBar>(this->task_bar));
     this->components.push_back(std::make_unique<Button>(btn));
+    this->components.push_back(std::make_unique<IconButton>(this->deleteAllButton));
     this->components.push_back(std::make_unique<IconButton>(this->deleteButton));
     this->components.push_back(std::make_unique<IconButton>(this->addEdgeButton));
     this->components.push_back(std::make_unique<IconButton>(this->addNodeButton));
@@ -37,11 +38,13 @@ void Home::update() {
 }
 void Home::handel_events() {
    // std::cout << "state is : " <<this->deleteButton.is_enabled()<< std::endl;
-
+    if(this->deleteAllButton.is_clicked()) {
+        Node::delete_all();
+    }
     if(this->deleteButton.is_enabled()) {
          SetMouseCursor(3);
      }else {
-         SetMouseCursor(0);
+        // SetMouseCursor(0);
      }
     if(this->btn.is_clicked()) {
         Page::next = "start";

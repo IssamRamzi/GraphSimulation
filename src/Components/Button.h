@@ -12,7 +12,7 @@
 
 
 class Button : public Component{
-private:
+protected:
     Color hooverColor;
     Color drawColor;
 
