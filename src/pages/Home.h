@@ -20,8 +20,8 @@ public:
 
     Home();
     Rectangle rect;
-    void  draw();
-    void  update();
+    void  draw() override;
+    void  update() override;
     void handel_events() override;
 private:
 

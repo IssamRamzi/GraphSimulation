@@ -10,6 +10,17 @@ bool IconButtonGroup::enableButton(IconButton button) {
     for(IconButton b :this->buttonsGroup) {
         if( b.is_enabled() == true) return false;
     }
+}
+void IconButtonGroup::draw() {
+    for (IconButton b: this->buttonsGroup) {
+                 b.draw();
+    }
+}
+void IconButtonGroup::update() {
 
 }
+bool IconButtonGroup::is_clicked() {
+
+}
+
 

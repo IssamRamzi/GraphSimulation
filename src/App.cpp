@@ -8,6 +8,9 @@
 #include "pages/Start.h"
 #include <map>
 #include "App.h"
+
+#include "pages/Help.h"
+
 App::App() {
 
 }
@@ -16,9 +19,11 @@ void App::launch() {
     InitWindow(utils.WINDOW_WIDTH,utils.WINDOW_HEIGHT,"Graph Visualizer");
     Home home;
     Start start;
+    Help help;
     std::map<string,Page*> pages ;
     pages.insert(std::make_pair("home",&home));
     pages.insert(std::make_pair("start",&start));
+    pages.insert(std::make_pair("help",&help));
 
     Page* current_page = &start ;
     Page::next = "start";

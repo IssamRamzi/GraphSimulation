@@ -53,6 +53,8 @@ add_executable(${PROJECT_NAME}
         src/Components/IconButtonGroup.h
         src/headers/Simulation.cpp
         src/headers/Simulation.h
+        src/pages/Help.cpp
+        src/pages/Help.cpp
 )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)

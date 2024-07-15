@@ -13,9 +13,9 @@ class Help : public Page{
 public:
     Help();
     Rectangle rect;
-    void draw();
-    void update();
-    void handel_events();
+    void  draw() override;
+    void  update() override;
+    void handel_events() override;
 
 private:
     Button btn = Button(5,5,70,42,RED,DARKBLUE,"HELP");
