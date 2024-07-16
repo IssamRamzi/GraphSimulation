@@ -61,5 +61,8 @@ void Home::handel_events() {
     }else {
         SetMouseCursor(0);
     }
+    if(this->deleteButton.is_clicked() || IsKeyPressed(KEY_Q)){
+        Node::delete_all();
+    }
 }
 

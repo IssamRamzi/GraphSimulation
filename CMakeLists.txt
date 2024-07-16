@@ -29,31 +29,18 @@ endif()
 add_executable(${PROJECT_NAME}
         src/main.cpp
         src/headers/Graph.cpp
-        src/headers/Graph.h
         src/headers/Node.cpp
-        src/headers/Node.h
         src/headers/Utils.cpp
-        src/headers/Utils.h
-        src/pages/home.cpp
+        src/pages/Home.cpp
         src/pages/page.cpp
         src/Constants.cpp
-        src/pages/home.h
-        src/pages/page.h
-        src/pages/start.cpp
-        src/pages/start.h
+        src/pages/Start.cpp
         src/Components/Button.cpp
-        src/Components/Button.h
-        src/Constants.h
-        src/Components/Component.h
         src/Components/TaskBar.cpp
-        src/Components/TaskBar.h
         src/App.cpp
         src/Components/IconButton.cpp
         src/Components/IconButtonGroup.cpp
-        src/Components/IconButtonGroup.h
         src/headers/Simulation.cpp
-        src/headers/Simulation.h
-        src/pages/Help.cpp
         src/pages/Help.cpp
 )
 #set(raylib_VERBOSE 1)

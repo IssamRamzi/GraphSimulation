@@ -14,3 +14,10 @@ Texture2D Utils::uplodIcons(const char* path,int newWidth,int newHeight) {
     return  icon;
 }
 
+Utils::Utils() {
+    Utils::WINDOW_WIDTH_FS = GetMonitorWidth(GetCurrentMonitor());
+    Utils::WINDOW_HEIGHT_FS = GetMonitorHeight(GetCurrentMonitor());
+}
+
+
+

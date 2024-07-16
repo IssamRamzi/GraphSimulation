@@ -4,26 +4,25 @@
 
 #include "Help.h"
 Help::Help() {
-    this->rect = Rectangle();
-   this->components.push_back(std::make_unique<Button>(btn));
+    this->components.push_back(std::make_unique<Button>(btn));
 }
-void Help::draw(){
-    for (const auto & c: this->components) {
+
+void Help::draw() {
+    for(auto& c : this->components) {
         c->draw();
-
     }
-
+    DrawText("Press A or The DELETE Button to erase all the nodes.", 10,60,20,BLACK);
+    DrawText("Press A or The DELETE Button to erase all the nodes.", 10,100,20,BLACK);
 }
-void Help::update(){
-    for (const auto & c: this->components) {
+void Help::update() {
+    for(auto& c : this->components) {
         c->update();
-
     }
-
 }
-void Help::handel_events(){
+void Help::handel_events() {
     if(this->btn.is_clicked()) {
-        Help::next="start";
+        Page::next = "start";
     }
 
 }
+

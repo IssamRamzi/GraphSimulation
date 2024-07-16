@@ -7,10 +7,10 @@
 
 # Menus
 
-### - [ ] Add the Home Page
+### - [x] Add the Home Page
 ### - [ ] Add the Algo Page
 ### - [ ] Add a help page
-### - [ ] Adding Task bare
+### - [x] Adding Task bare
 
 # UI
 

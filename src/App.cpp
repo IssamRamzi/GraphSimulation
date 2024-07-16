@@ -8,7 +8,6 @@
 #include "pages/Start.h"
 #include <map>
 #include "App.h"
-
 #include "pages/Help.h"
 
 App::App() {
@@ -20,6 +19,7 @@ void App::launch() {
     Home home;
     Start start;
     Help help;
+
     std::map<string,Page*> pages ;
     pages.insert(std::make_pair("home",&home));
     pages.insert(std::make_pair("start",&start));
@@ -30,6 +30,13 @@ void App::launch() {
 
 
     while (!WindowShouldClose()){
+
+        if(IsKeyPressed(KEY_F11)){
+//            Utils::getFullScreenSize();
+            ToggleFullscreen();
+//            SetWindowSize(Utils::WINDOW_HEIGHT_FS, Utils::WINDOW_WIDTH_FS);
+        }
+
         current_page = pages[Page::next];
         BeginDrawing();
         current_page->draw();
