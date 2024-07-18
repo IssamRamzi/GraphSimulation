@@ -29,11 +29,14 @@ void Home::draw() {
     for (const auto & c: this->components) {
         c->draw();
     }
-    Node::handle_creation();
-    Node::update();
+    Node::create_node();
+    Node::update_node();
+    if(Node::can_create)
+        DrawRectangle(Utils::WINDOW_WIDTH - 30,0,30,30,GREEN);
+    else DrawRectangle(Utils::WINDOW_WIDTH - 30,0,30,30,RED);
 }
 void Home::update() {
-    Node :: handle_creation();
+    Node::create_node();
     for (const auto & c: this->components) {
         c->update();
 
@@ -55,7 +58,7 @@ void Home::handel_events() {
         SetMouseCursor(3);
         if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             Node::nodes.erase(std::remove_if(Node::nodes.begin(), Node::nodes.end(), []( Node n) {
-            return n.is_clicked2();
+            return n.is_clicked();
       }),  Node::nodes.end());
         }
     }else {

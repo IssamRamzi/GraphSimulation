@@ -30,7 +30,6 @@ add_executable(${PROJECT_NAME}
         src/main.cpp
         src/headers/Graph.cpp
         src/headers/Node.cpp
-        src/headers/Utils.cpp
         src/pages/Home.cpp
         src/pages/page.cpp
         src/Constants.cpp
@@ -42,6 +41,8 @@ add_executable(${PROJECT_NAME}
         src/Components/IconButtonGroup.cpp
         src/headers/Simulation.cpp
         src/pages/Help.cpp
+        src/headers/Utils.cpp
+
 )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)

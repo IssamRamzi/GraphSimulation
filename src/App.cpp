@@ -14,8 +14,7 @@ App::App() {
 
 }
 void App::launch() {
-    Utils utils;
-    InitWindow(utils.WINDOW_WIDTH,utils.WINDOW_HEIGHT,"Graph Visualizer");
+    InitWindow(Utils::WINDOW_WIDTH,Utils::WINDOW_HEIGHT,Utils::WINDOW_TITLE.c_str());
     Home home;
     Start start;
     Help help;
@@ -25,16 +24,13 @@ void App::launch() {
     pages.insert(std::make_pair("start",&start));
     pages.insert(std::make_pair("help",&help));
 
-    Page* current_page = &start ;
+    Page* current_page;
     Page::next = "start";
-
 
     while (!WindowShouldClose()){
 
-        if(IsKeyPressed(KEY_F11)){
-//            Utils::getFullScreenSize();
+        if (IsKeyPressed(KEY_F11)) {
             ToggleFullscreen();
-//            SetWindowSize(Utils::WINDOW_HEIGHT_FS, Utils::WINDOW_WIDTH_FS);
         }
 
         current_page = pages[Page::next];
@@ -42,6 +38,8 @@ void App::launch() {
         current_page->draw();
         current_page->update();
         current_page->handel_events();
+
+
         ClearBackground(RAYWHITE);
         EndDrawing();
     }

@@ -6,6 +6,14 @@
 
 #include <iostream>
 
+int Utils::WINDOW_HEIGHT = 960;
+int Utils::WINDOW_WIDTH = 1600;
+std::string Utils::WINDOW_TITLE = "Graph Simulation";
+Utils::Utils() {
+
+
+}
+
 Texture2D Utils::uplodIcons(const char* path,int newWidth,int newHeight) {
     Image iconImage = LoadImage(path);
     ImageResize(&iconImage, newWidth, newHeight);
@@ -14,10 +22,7 @@ Texture2D Utils::uplodIcons(const char* path,int newWidth,int newHeight) {
     return  icon;
 }
 
-Utils::Utils() {
-    Utils::WINDOW_WIDTH_FS = GetMonitorWidth(GetCurrentMonitor());
-    Utils::WINDOW_HEIGHT_FS = GetMonitorHeight(GetCurrentMonitor());
-}
+
 
 
 

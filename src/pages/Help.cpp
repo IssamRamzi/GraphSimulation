@@ -11,8 +11,8 @@ void Help::draw() {
     for(auto& c : this->components) {
         c->draw();
     }
-    DrawText("Press A or The DELETE Button to erase all the nodes.", 10,60,20,BLACK);
-    DrawText("Press A or The DELETE Button to erase all the nodes.", 10,100,20,BLACK);
+    DrawText("Press A or The DELETE Button to erase all the nodes and all the edges.", 10,60,20,BLACK);
+    DrawText("Press N or The EDGE Button to erase all the edges.", 10,100,20,BLACK);
 }
 void Help::update() {
     for(auto& c : this->components) {

@@ -3,7 +3,8 @@
 ### - [x] Add Link Between nodes by right click
 ### - [ ] Add Ancestors - Successors Link
 ### - [ ] Add collision system between nodes *comme ca on peut pas créer deux noeuds qui se touchent*
-
+### - [ ] Check if the link exists before adding it O(n) or if it's the same node
+### - [ ] 
 
 # Menus
 
@@ -19,4 +20,7 @@
 
 # Fixes : 
 
-### - [ ] Fix the link system
+### - [x] Fix the link system
+### - [ ] Figure out the link delete problem
+
+

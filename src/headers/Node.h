@@ -16,13 +16,10 @@ private:
     int             fontSize;
     int             radius;
     Vector2         position;
-    Node            *ancestors;
-    Node            *Successors;
-
-
     Color color;
 
 public:
+    static bool can_create;
     static std::vector<Node> nodes;
     static std::vector<std::pair<Node*, Node*>> links;
     static std::vector<Node*> link_vector;
@@ -31,21 +28,25 @@ public:
     Node                    (int value, Vector2 position);
     Node                    (int value, Vector2 position, int radius);
     Node                    (int value, Vector2 position, Color color);
-
-
     Node                    (int value, Vector2 position, int radius, Color color);
     ~                       Node();
-    void                    draw();
-    void                    toString();
-    static void             handle_creation();
 
-    static void             test();
+
+    void                    draw_node();
+    static void             update_node();
+    static void             create_node();
+    static void             draw();
     static void             update();
-    bool                    is_clicked();
+
+    bool                    check_for_link();
     static void             link_nodes();
     static void             draw_links();
+
     static void             delete_all();
-    bool                    is_clicked2();
+
+    bool                    is_clicked();
+
+    void                    toString();
 };
 
 
