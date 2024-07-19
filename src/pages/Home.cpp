@@ -44,7 +44,7 @@ void Home::update() {
 }
 void Home::handel_events() {
    // std::cout << "state is : " <<this->deleteButton.is_enabled()<< std::endl;
-    if(this->deleteAllButton.is_clicked()) {
+    if(this->deleteAllButton.is_clicked() || IsKeyPressed(KEY_Q) ) {
         Node::delete_all();
     }
     if(this->btn.is_clicked()) {
@@ -64,8 +64,6 @@ void Home::handel_events() {
     }else {
         SetMouseCursor(0);
     }
-    if(this->deleteButton.is_clicked() || IsKeyPressed(KEY_Q)){
-        Node::delete_all();
-    }
+
 }
 
