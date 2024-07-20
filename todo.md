@@ -4,9 +4,9 @@
 ### - [ ] Add Ancestors - Successors Link
 ### - [ ] Add collision system between nodes *comme ca on peut pas créer deux noeuds qui se touchent*
 ### - [ ] Check if the link exists before adding it O(n) or if it's the same node
-### - [ ]  Adding Big Number as values to the node
+### - [ ] Adding Big Number as values to the node
 ### - [ ] Change  the node color
-### - [ ]  Change Node State
+### - [ ] Change Node State
 
 # Menus
 
@@ -17,8 +17,10 @@
 ### - [ ] Adding Matrix Status (threading)
 
 # Graph
-### - [ ] FIXING THE Grafh data structur map<Node,vector<Node>>
-### - [ ] fixing the systeme designe 
+
+### - [ ] FIXING THE Graph data structure map<Node,vector<Node>>
+### - [ ] fixing the system design
+
 # UI
 
 ### - [ ] Create A better node UI

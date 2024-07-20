@@ -19,8 +19,8 @@ public:
     static std::string  WINDOW_TITLE;
 
     Utils();
-    static  Texture2D uplodIcons(const char* path,int newWidth,int newHeight);
-
+    static Texture2D uplodIcons(const char* path,int newWidth,int newHeight);
+    static double distance(Vector2 a,Vector2 b);
 };
 
 

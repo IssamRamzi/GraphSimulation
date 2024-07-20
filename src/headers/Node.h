@@ -22,7 +22,9 @@ public:
     static bool can_create;
     static std::vector<Node> nodes;
     static std::vector<std::pair<Node*, Node*>> links;
+    static std::vector<int> link_distance;
     static std::vector<Node*> link_vector;
+
 
     Node                    (int value);
     Node                    (int value, Vector2 position);

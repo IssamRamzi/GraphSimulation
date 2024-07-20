@@ -1,9 +1,13 @@
 #include "Node.h"
 #include "raylib.h"
+#include "Utils.h"
 
 std::vector<Node> Node::nodes;
 std::vector<std::pair<Node*, Node*>> Node::links;
 std::vector<Node*> Node::link_vector;
+std::vector<int> Node::link_distance;
+
+
 bool Node::can_create = true;
 
 static const int DEFAULT_RADIUS = 30;
@@ -54,30 +58,24 @@ void Node::draw_node() {
 
 // Handles the creation of new Nodes based on mouse input
 void Node::create_node() {
-    for (const Node& node : nodes) {
-        if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+    for (const Node &node: nodes) {
             Vector2 mouse_pos = GetMousePosition();
-            if (mouse_pos.x <= node.position.x + node.radius + MINIMUM_DISTANCE && mouse_pos.x >= node.position.x - node.radius - MINIMUM_DISTANCE &&
-                mouse_pos.y <= node.position.y + node.radius + MINIMUM_DISTANCE && mouse_pos.y >= node.position.y - node.radius - MINIMUM_DISTANCE) {
+            if (mouse_pos.x <= node.position.x + node.radius + MINIMUM_DISTANCE &&
+                mouse_pos.x >= node.position.x - node.radius - MINIMUM_DISTANCE &&
+                mouse_pos.y <= node.position.y + node.radius + MINIMUM_DISTANCE &&
+                mouse_pos.y >= node.position.y - node.radius - MINIMUM_DISTANCE) {
 //                std::cout << "Can't create here" << std::endl;
                 can_create = false;
                 return;
-            }
-            else can_create = true;
-        }
+            } else can_create = true;
     }
 
-    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
-        int key = GetCharPressed();
-        if (key >= '0' && key <= '9') {
-            key -= '0';
-            Vector2 mousePosition = GetMousePosition();
-            Node node{key, mousePosition};
-            nodes.push_back(node);
-            node.toString();
-        }
+    if (can_create && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        nodes.emplace_back(Node(nodes.size() + 1, GetMousePosition()));
+        std::cout << "Node(" << nodes.size() << ") created" << std::endl;
     }
 }
+
 
 // Prints the Node's value and position to the console
 void Node::toString() {
@@ -122,20 +120,26 @@ bool Node::check_for_link() {
 void Node::link_nodes() {
     if (link_vector.size() == 2) {
         links.emplace_back(link_vector[0], link_vector[1]);
+        int distance = Utils::distance(link_vector[0]->position, link_vector[1]->position);
         std::cout << "Linked nodes" << std::endl;
+        printf("distance : %d\n" ,distance);
+        link_distance.emplace_back(distance);
         link_vector.clear();
-        printf("current : %d, max : %zu\n",links.size(), links.max_size());
     }
 }
 
 // Draws lines between linked nodes
 void Node::draw_links() {
-    for (const auto& link : links) {
-        Vector2 start = link.first->position;
-        Vector2 end = link.second->position;
+    for (int i =0; i < links.size(); i++) {
+        Vector2 start = links[i].first->position;
+        Vector2 end = links[i].second->position;
         DrawLineEx(start, end, 2, RED);
+        DrawText(std::to_string(link_distance[i]).c_str(), (start.x + end.x) / 2, (start.y + end.y) / 2, 20, BLACK);
     }
 }
+
+
+
 
 // Destructor for the Node class
 Node::~Node() {
@@ -147,6 +151,7 @@ void Node::delete_all() {
     nodes.clear();
     links.clear();
     link_vector.clear();
+    can_create = true;
 }
 
 bool Node::is_clicked() {
